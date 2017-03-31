@@ -12,4 +12,4 @@
 
 - name: include thruk
   include: thruk.yml
-  when: nagios_thruk_frontend == true
+  when: nagios_thruk_frontend
