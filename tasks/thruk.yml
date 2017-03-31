@@ -1,0 +1,17 @@
+---
+- name: Add proper key for OMD repository
+  apt_key:
+    keyserver: keys.gnupg.net
+    id: F8C1CA08A57B9ED7
+
+- name: Add OMD repository (contains thruk-stable packages)
+  apt_repository:
+    repo: deb http://labs.consol.de/repo/stable/ubuntu {{ ansible_os_family }} main
+    state: present
+    filename: 'labs-consol-stable'
+    update_cache: yes
+
+- name: Install thruk
+  apt:
+    name: thruk
+    state: present
