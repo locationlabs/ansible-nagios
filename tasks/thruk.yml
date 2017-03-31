@@ -6,7 +6,7 @@
 
 - name: Add OMD repository (contains thruk-stable packages)
   apt_repository:
-    repo: deb http://labs.consol.de/repo/stable/ubuntu {{ ansible_os_family }} main
+    repo: deb http://labs.consol.de/repo/stable/ubuntu {{ ansible_distribution_release }} main
     state: present
     filename: 'labs-consol-stable'
     update_cache: yes
