@@ -5,7 +5,6 @@
   include: client.yml
   when: run_nagios_client is defined
 
-
 - name: include server
   include: server.yml
   when: run_nagios_server is defined
