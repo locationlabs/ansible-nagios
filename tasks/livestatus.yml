@@ -1,0 +1,43 @@
+---
+# tasks file for livestatus
+- name: install dependencies
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+   - make
+   - xinetd
+   - ucspi-unix
+   - iputils-ping
+   - netcat
+   - build-essential
+   - php5-cli
+   - apache2
+   - apache2-utils
+
+- name: download livestatus package
+  get_url:
+    url: "http://mathias-kettner.de/download/mk-livestatus-1.2.8.tar.gz"
+    dest: "/tmp/mk-livestatus.tar.gz"
+
+- name: compile and make the package
+  shell: cd /tmp && tar xvzf mk-livestatus.tar.gz && cd mk-livestatus-1.2.8 && ./configure && make && make install
+
+- name: template livestatus xinet service config
+  template: src=livestatus dest=/etc/xinetd.d/livestatus
+
+- name: add event_broker options
+  lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
+              regexp=''
+              insertafter=EOF
+              line="event_broker_options=-1"
+
+- name: add broker module
+  lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
+              regexp=''
+              insertafter=EOF
+              line="broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live"
+
+- name: restart xinetd
+  service: name=xinetd state=restarted
+
+- name: restart nagios
+  service: name=nagios state=restarted

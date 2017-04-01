@@ -13,3 +13,7 @@
 - name: include thruk
   include: thruk.yml
   when: nagios_thruk_frontend
+
+- name: include livestatus
+  include: livestatus.yml
+  when: nagios_thruk_frontend
