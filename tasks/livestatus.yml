@@ -19,7 +19,7 @@
     dest: "/tmp/mk-livestatus.tar.gz"
 
 - name: compile and make the package
-  shell: cd /tmp && tar xvzf mk-livestatus.tar.gz && cd mk-livestatus-1.2.8 && ./configure && make && make install
+  shell: cd /tmp && tar xvzf mk-livestatus.tar.gz && cd mk-livestatus-1.2.8 && ./configure --with-nagios4 && make && make install
 
 - name: template livestatus xinet service config
   template: src=livestatus dest=/etc/xinetd.d/livestatus
