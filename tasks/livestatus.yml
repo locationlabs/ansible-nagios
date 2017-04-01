@@ -9,7 +9,7 @@
    - iputils-ping
    - netcat
    - build-essential
-   - php5-cli
+   - php-cli
    - apache2
    - apache2-utils
 
