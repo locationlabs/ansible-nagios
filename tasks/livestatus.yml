@@ -24,12 +24,6 @@
 - name: template livestatus xinet service config
   template: src=livestatus dest=/etc/xinetd.d/livestatus
 
-- name: add event_broker options
-  lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
-              regexp=''
-              insertafter=EOF
-              line="event_broker_options=-1"
-
 - name: add broker module
   lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
               regexp=''
