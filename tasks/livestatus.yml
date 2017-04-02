@@ -36,10 +36,10 @@
   lineinfile:
     dest: /usr/local/nagios/etc/nagios.cfg
     insertafter: EOF
-    line: {{ item.src }}
+    line: {{ item }}
   with_items:
-    - "{{ src: 'event_broker_options=-1' }}"
-    - "{{ src: 'broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live' }}"
+    - "{{ 'event_broker_options=-1' }}"
+    - "{{ 'broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live' }}"
 
 - name: restart xinetd
   service: name=xinetd state=restarted
