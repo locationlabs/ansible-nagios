@@ -30,7 +30,7 @@
     state: directory
     owner: nagios
     group: nagios
-    mode: 0760
+    mode: 0755
 
 - name: ensure livestatus socket file exists
   file:
