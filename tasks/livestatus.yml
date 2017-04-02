@@ -15,8 +15,8 @@
 
 - name: download livestatus package
   get_url:
-    url: "http://mathias-kettner.de/download/mk-livestatus-1.2.8.tar.gz"
-    dest: "/tmp/mk-livestatus.tar.gz"
+    url: 'http://mathias-kettner.de/download/mk-livestatus-1.2.8.tar.gz'
+    dest: ''/tmp/mk-livestatus.tar.gz'
 
 - name: compile and make the package
   shell: cd /tmp && tar xvzf mk-livestatus.tar.gz && cd mk-livestatus-1.2.8 && ./configure --with-nagios4 && make && make install
@@ -38,8 +38,8 @@
     insertafter: EOF
     line: {{ item.src }}
   with_items:
-    - { src: "event_broker_options=-1" }
-    - { src: "broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live" }
+    - "{{ src: 'event_broker_options=-1' }}"
+    - "{{ src: 'broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live' }}"
 
 - name: restart xinetd
   service: name=xinetd state=restarted
