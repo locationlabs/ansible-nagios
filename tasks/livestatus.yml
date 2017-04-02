@@ -32,6 +32,14 @@
     group: nagios
     mode: 0660
 
+- name: ensure livestatus socket file exists
+  file:
+    path: /var/lib/nagios/rw/live
+    state: touch
+    owner: nagios
+    group: nagios
+    mode: 0660
+    
 - name: add event_broker options
   lineinfile:
     dest: /usr/local/nagios/etc/nagios.cfg
