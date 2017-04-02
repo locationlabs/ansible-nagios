@@ -30,7 +30,7 @@
     state: directory
     owner: nagios
     group: nagios
-    mode: 0660
+    mode: 0760
 
 - name: ensure livestatus socket file exists
   file:
@@ -39,7 +39,7 @@
     owner: nagios
     group: nagios
     mode: 0660
-    
+
 - name: add event_broker options
   lineinfile:
     dest: /usr/local/nagios/etc/nagios.cfg
