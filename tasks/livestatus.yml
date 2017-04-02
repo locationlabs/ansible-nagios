@@ -24,17 +24,22 @@
 - name: template livestatus xinet service config
   template: src=livestatus dest=/etc/xinetd.d/livestatus
 
-- name: add event_broker options
-  lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
-              regexp=''
-              insertafter=EOF
-              line="event_broker_options=-1"
+- name: ensure livestatus socket directory exists
+  file:
+    path: /var/lib/nagios/rw
+    state: directory
+    owner: nagios
+    group: nagios
+    mode: 0660
 
-- name: add broker module
-  lineinfile: dest=/usr/local/nagios/etc/nagios.cfg
-              regexp=''
-              insertafter=EOF
-              line="broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live"
+- name: add event_broker options
+  lineinfile:
+    dest: /usr/local/nagios/etc/nagios.cfg
+    insertafter: EOF
+    line: {{ item.src }}
+  with_items:
+    - { src: "event_broker_options=-1" }
+    - { src: "broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live" }
 
 - name: restart xinetd
   service: name=xinetd state=restarted
