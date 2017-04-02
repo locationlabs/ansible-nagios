@@ -36,7 +36,7 @@
   lineinfile:
     dest: /usr/local/nagios/etc/nagios.cfg
     insertafter: EOF
-    line: {{ item }}
+    line: "{{ item }}"
   with_items:
     - "{{ 'event_broker_options=-1' }}"
     - "{{ 'broker_module=/usr/local/lib/mk-livestatus/livestatus.o /var/lib/nagios/rw/live' }}"
