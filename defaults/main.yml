@@ -154,8 +154,5 @@ nagios_monitoring_servers_group_name: "monitoring-servers"
 #nagios_remove_all_group: "yes"
 nagios_remove_all_group: "no"
 
-# If you'd like to have thruk installed as a frontend for nagios, set nagios_thruk_frontend: "true"
-nagios_thruk_frontend: "true"
-
 # variable to specify the IP address of a naagios host, if necessary
 nagios_host: ""

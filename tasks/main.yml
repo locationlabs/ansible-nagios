@@ -9,10 +9,6 @@
   include: server.yml
   when: run_nagios_server is defined
 
-- name: include thruk
-  include: thruk.yml
-  when: nagios_thruk_frontend
-
 - name: include livestatus
   include: livestatus.yml
   when: nagios_thruk_frontend
