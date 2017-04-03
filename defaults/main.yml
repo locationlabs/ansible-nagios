@@ -61,6 +61,9 @@ nagios_object_dir: "{{nagios_base_dir}}/etc/objects"
 # autoload all files ending in .cfg
 nagios_cfg_dir_enabled: false
 
+# To configure hosts with their IP address in the "address" directive
+nagios_use_host_ip_address: true
+
 # id of nagios user
 nagios_user: nagios
 
