@@ -71,7 +71,7 @@ nagios_user: nagios
 nagios_group: nagios
 
 nagios_host_groups:
-  - name: 'all'
+  - name: "{{ nagios_monitoring_servers_group_name }}"
     checks:
       - {command: 'check_ssh', description: 'SSH Service Check'}
       - {command: 'check_disk', description: 'Check Disk Space'}
