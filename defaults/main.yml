@@ -71,7 +71,7 @@ nagios_user: nagios
 nagios_group: nagios
 
 nagios_host_groups:
-  - name: 'all'
+  - name: "{{ nagios_monitoring_servers_group_name }}"
     checks:
       - {command: 'check_ssh', description: 'SSH Service Check'}
       - {command: 'check_disk', description: 'Check Disk Space'}
@@ -153,9 +153,6 @@ nagios_monitoring_servers_group_name: "monitoring-servers"
 # Set this to remove the Ansible "all" group. In that case, be sure to add at least one new Ansible group, and one new service check in the nagios_host_groups variable
 #nagios_remove_all_group: "yes"
 nagios_remove_all_group: "no"
-
-# If you'd like to have thruk installed as a frontend for nagios, set nagios_thruk_frontend: "true"
-nagios_thruk_frontend: "true"
 
 # variable to specify the IP address of a naagios host, if necessary
 nagios_host: ""
