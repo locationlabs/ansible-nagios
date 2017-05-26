@@ -146,6 +146,7 @@ nagios_web_login_auth: "true"
 nagios_allowed_hosts:
   - 127.0.0.1
   - ::1
+  - "{{nagios_host}}"
 
 #This should match your top-level ansible playbook, such as "- hosts: monitoring-servers"
 nagios_monitoring_servers_group_name: "monitoring-servers"
