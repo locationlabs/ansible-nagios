@@ -1,0 +1,11 @@
+---
+# Install custom check scripts, if any.
+- name: Template out custom service checks
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ nrpe_client_plugins_dir }}/{{ item }}"
+    owner: "{{ nagios_user }}"
+    group: "{{ nagios_group }}"
+    mode: 0755
+  with_items:
+    - "{{ nagios_custom_checks }}"
