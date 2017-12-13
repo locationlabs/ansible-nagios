@@ -91,6 +91,9 @@ nagios_commands:
   - {name: 'check_swap', command: '$USER1$/check_nrpe -H $HOSTADDRESS$ -c check_swap'}
   - {name: 'check_mem', command: '$USER1$/check_nrpe -H $HOSTADDRESS$ -c check_mem'}
 
+# Custom check scripts to be installed, if any
+nagios_custom_checks: []
+
 nagios_cgi_show_context_help: 1
 nagios_cgi_authorized_for_system_information: '*'
 nagios_cgi_authorized_for_configuration_information: '*'

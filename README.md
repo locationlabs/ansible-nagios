@@ -57,6 +57,12 @@ You can add more commands by adding to, or overriding, the variable.
 The nagios services are currently in the "checks" per hostgroup variables, see defaults/main.yml.
 You can add more services by adding to, or overriding, the variable.
 
+### Nagios Custom Checks:
+
+You can define a list of custom check scripts in the `nagios_custom_checks` variable.
+Files with these names will be templated to the `nrpe_client_plugins_dir` directory
+on the Nagios server and can be used in commands and local services definitions.
+
 ### Nagios Hosts:
 
 Ansible hosts in the 'all' group are converted to nagios monitored hosts. No configuration required.
