@@ -14,6 +14,8 @@ All the variables in the defaults/ directory may be overridden or changed.
 
 The default ansible inventory group `monitoring-servers` can be customized with the `nagios_monitoring_servers_group_name` variable.
 
+If the variable `nagios_host_name` is defined for a host this value will be used for the `host_name` attribute in hosts and services definitions.
+
 ### Contacts/Users:
 
 Add users who should be allowed to login to the Nagios web GUI in the nagios_users variable:  
