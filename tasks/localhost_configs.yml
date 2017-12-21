@@ -2,7 +2,7 @@
 - name: Increase check_local_procs threshold
   lineinfile:
     state: present
-    path: "{{ nagios_object_dir }}"/localhost.cfg
+    path: "{{ nagios_object_dir }}/localhost.cfg"
     regexp: 'check_local_procs'
     line: "        check_command                   check_local_procs!2500!4000!RSZDT"
     owner: root
@@ -12,7 +12,7 @@
 - name: Increase check_local_procs threshold
   lineinfile:
     state: present
-    path: "{{ nagios_object_dir }}"/localhost.cfg
+    path: "{{ nagios_object_dir }}/localhost.cfg"
     regexp: 'check_local_load'
     line: "        check_command                   check_local_load!15.0,14.0,13.0!20.0,16.0,14.0"
     owner: root
