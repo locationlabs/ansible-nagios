@@ -8,6 +8,7 @@
     owner: "{{ nagios_user }}"
     group: "{{ nagios_user }}"
     mode: 0640
+  register: restart nagios
 
 - name: Increase check_local_procs threshold
   lineinfile:
@@ -18,13 +19,4 @@
     owner: "{{ nagios_user }}"
     group: "{{ nagios_user }}"
     mode: 0640
-
-- name: Increase report_max_objects
-  lineinfile:
-    state: present
-    path: /usr/share/thruk/lib/Thruk/Config.pm
-    regexp: 'report_max_objects'
-    line: "        'report_max_objects'                => 5000,"
-    owner: root
-    group: root
-    mode: 0644
+  register: restart nagios
