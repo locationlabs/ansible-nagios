@@ -5,8 +5,8 @@
     path: "{{ nagios_object_dir }}/localhost.cfg"
     regexp: 'check_local_procs'
     line: "        check_command                   check_local_procs!2500!4000!RSZDT"
-    owner: root
-    group: root
+    owner: "{{ nagios_user }}"
+    group: "{{ nagios_user }}"
     mode: 0640
 
 - name: Increase check_local_procs threshold
@@ -15,8 +15,8 @@
     path: "{{ nagios_object_dir }}/localhost.cfg"
     regexp: 'check_local_load'
     line: "        check_command                   check_local_load!15.0,14.0,13.0!20.0,16.0,14.0"
-    owner: root
-    group: root
+    owner: "{{ nagios_user }}"
+    group: "{{ nagios_user }}"
     mode: 0640
 
 - name: Increase report_max_objects
