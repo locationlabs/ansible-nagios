@@ -14,6 +14,8 @@ All the variables in the defaults/ directory may be overridden or changed.
 
 The default ansible inventory group `monitoring-servers` can be customized with the `nagios_monitoring_servers_group_name` variable.
 
+If the variable `nagios_host_name` is defined for a host this value will be used for the `host_name` attribute in hosts and services definitions.
+
 ### Contacts/Users:
 
 Add users who should be allowed to login to the Nagios web GUI in the nagios_users variable:  
@@ -56,6 +58,12 @@ You can add more commands by adding to, or overriding, the variable.
 
 The nagios services are currently in the "checks" per hostgroup variables, see defaults/main.yml.
 You can add more services by adding to, or overriding, the variable.
+
+### Nagios Custom Checks:
+
+You can define a list of custom check scripts in the `nagios_custom_checks` variable.
+Files with these names will be templated to the `nrpe_client_plugins_dir` directory
+on the Nagios server and can be used in commands and local services definitions.
 
 ### Nagios Hosts:
 

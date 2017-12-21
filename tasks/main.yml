@@ -2,11 +2,9 @@
 # tasks file for tester2
 
 - name: include client
-  include: client.yml 
-  when: run_nagios_client is defined 
-
+  include: client.yml
+  when: run_nagios_client is defined
 
 - name: include server
-  include: server.yml 
-  when: run_nagios_server is defined 
-
+  include: server.yml
+  when: run_nagios_server is defined
