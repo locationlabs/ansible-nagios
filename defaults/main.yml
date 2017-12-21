@@ -145,6 +145,7 @@ nagios_groups_ignore: ""
 # Default: `nagios_login_auth: "true"`
 nagios_web_login_auth: "true"
 
+
 # nagios_allowed_hosts will automatically include the "monitoring-servers" as well
 nagios_allowed_hosts:
   - 127.0.0.1
