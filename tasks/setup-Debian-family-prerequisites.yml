@@ -7,7 +7,7 @@
 - name: install apache, Ubuntu 12, 14
   apt:
     state: present
-    packages:
+    package:
       - apache2
       - php5-gd
       - libgd2-xpm-dev
@@ -18,7 +18,7 @@
 - name: install apache, Ubuntu 16
   apt:
     state: present
-    packages:
+    package:
       - apache2
       - php-gd
       - libgd2-xpm-dev
@@ -29,7 +29,7 @@
 - name: install apache, Debian
   apt:
     state: present
-    packages:
+    package:
       - apache2
       - php5-gd
       - libgd2-xpm-dev
@@ -40,7 +40,7 @@
 - name: Install Nagios prerequisites for Ubuntu
   apt:
     state: present
-    packages:
+    package:
       #- linux-headers-{{ ansible_kernel }}
       - build-essential
       - python-passlib
@@ -48,7 +48,7 @@
 - name: Install Plugin prerequisites for Debian family
   apt:
     state: present
-    packages:
+    package:
       - libssl-dev
       - dnsutils
       - fping
@@ -61,14 +61,14 @@
 - name: Install Plugin prerequisites for Ubuntu
   apt:
     state: present
-    packages:
+    package:
       - libradiusclient-ng-dev
   when: ansible_distribution == 'Ubuntu' and ( ansible_distribution_version == '12.04' or ansible_distribution_version == '14.04' )
 
 - name: Install NRPE prerequisites
   apt:
     state: present
-    packages:
+    package:
       - build-essential
       - openssl
       - libssl-dev

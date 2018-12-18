@@ -19,7 +19,7 @@
 - name: install apache
   yum: 
     state: present
-    packages:
+    package:
       - php
       - httpd
       - libsemanage-python
@@ -28,7 +28,7 @@
 - name: Install Nagios prerequisites for CentOS
   yum: 
     state: present
-    packages:
+    package:
       - gcc
       - glibc
       - glibc-common
@@ -44,7 +44,7 @@
 - name: Install plugin prerequisites for CentOS
   yum: 
     state: present
-    packages:
+    package:
       - openssl-devel
       - fping
       - openldap-devel
@@ -56,7 +56,7 @@
 - name: Install NRPE prerequisites
   yum: 
     state: present
-    packages:
+    package:
       - gcc
       - glibc
       - glibc-common
