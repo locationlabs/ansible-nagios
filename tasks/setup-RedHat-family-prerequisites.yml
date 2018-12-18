@@ -18,48 +18,48 @@
 
 - name: install apache
   yum: 
-  state: present
-  packages:
-    - php
-    - httpd
-    - libsemanage-python
-    - libselinux-python
+    state: present
+    packages:
+      - php
+      - httpd
+      - libsemanage-python
+      - libselinux-python
 
 - name: Install Nagios prerequisites for CentOS
   yum: 
-  state: present
-  packages:
-    - gcc
-    - glibc
-    - glibc-common
-    - gd
-    - gd-devel
-    - make
-    - perl
-    - perl-devel
-    - wget
-    - python-passlib
-    - unzip
+    state: present
+    packages:
+      - gcc
+      - glibc
+      - glibc-common
+      - gd
+      - gd-devel
+      - make
+      - perl
+      - perl-devel
+      - wget
+      - python-passlib
+      - unzip
 
 - name: Install plugin prerequisites for CentOS
   yum: 
-  state: present
-  packages:
-    - openssl-devel
-    - fping
-    - openldap-devel
-    - postgresql-devel
-    - radiusclient-ng-devel
-    - samba-client
-    - libsmbclient
+    state: present
+    packages:
+      - openssl-devel
+      - fping
+      - openldap-devel
+      - postgresql-devel
+      - radiusclient-ng-devel
+      - samba-client
+      - libsmbclient
 
 - name: Install NRPE prerequisites
   yum: 
-  state: present
-  packages:
-    - gcc
-    - glibc
-    - glibc-common
-    - make
-    - openssl-devel
+    state: present
+    packages:
+      - gcc
+      - glibc
+      - glibc-common
+      - make
+      - openssl-devel
 
