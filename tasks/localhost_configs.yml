@@ -8,7 +8,7 @@
     owner: "{{ nagios_user }}"
     group: "{{ nagios_user }}"
     mode: 0640
-  register: restart nagios
+  notify: restart nagios
 
 - name: Increase check_local_procs threshold
   lineinfile:
@@ -19,4 +19,4 @@
     owner: "{{ nagios_user }}"
     group: "{{ nagios_user }}"
     mode: 0640
-  register: restart nagios
+  notify: restart nagios
